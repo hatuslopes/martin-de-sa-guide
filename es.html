@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Bienvenida - Martin de Sá Studio A5</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f5f5f5;
+            color: #2C3E50;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* CAPA */
+        .cover-page {
+            background: linear-gradient(135deg, #F5A623 0%, #FF9500 50%, #3D9A9B 100%);
+            padding: 80px 40px;
+            text-align: center;
+            color: white;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cover-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+            line-height: 1.2;
+        }
+
+        .cover-subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+
+        .cover-tagline {
+            font-size: 20px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        /* SEÇÕES */
+        .section {
+            padding: 50px 40px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #7F8C8D;
+            font-weight: 300;
+        }
+
+        /* BIENVENIDA */
+        .welcome-text {
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .welcome-text strong {
+            color: #F5A623;
+        }
+
+        .highlight-box {
+            background: #FFF5E6;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #F5A623;
+            margin: 30px 0;
+        }
+
+        .highlight-box p:first-child {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* REGLAS */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .rule-item {
+            background: #F8F9FA;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3D9A9B;
+        }
+
+        .rule-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .rule-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        .rule-text {
+            font-size: 14px;
+            color: #7F8C8D;
+            line-height: 1.6;
+        }
+
+        /* RESTAURANTES */
+        .restaurant-list {
+            margin-top: 30px;
+        }
+
+        .restaurant-item {
+            display: grid;
+            grid-template-columns: 80px 1fr 80px;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .restaurant-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .restaurant-icon {
+            font-size: 48px;
+            text-align: center;
+        }
+
+        .restaurant-info {
+            flex: 1;
+        }
+
+        .restaurant-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 5px;
+        }
+
+        .restaurant-rating {
+            color: #F5A623;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .restaurant-phone {
+            color: #3D9A9B;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .restaurant-comment {
+            font-size: 14px;
+            color: #7F8C8D;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .qr-code {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* ATRACCIONES */
+        .attraction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .attraction-item {
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .attraction-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .attraction-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .attraction-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.95);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+            color: #2C3E50;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .attraction-content {
+            padding: 15px;
+        }
+
+        .attraction-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 8px;
+        }
+
+        .attraction-description {
+            font-size: 14px;
+            color: #7F8C8D;
+            line-height: 1.5;
+        }
+
+        /* AGRADECIMIENTO */
+        .thank-you-section {
+            background: linear-gradient(135deg, #3D9A9B 0%, #2E7D7E 50%, #F5A623 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .thank-you-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+        }
+
+        .thank-you-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 30px;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .thank-you-message {
+            font-size: 18px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .thank-you-contact {
+            font-size: 16px;
+            padding: 25px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SELECTOR DE IDIOMAS */
+        .language-selector {
+            background: #2C3E50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .language-selector p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .language-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .language-link {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #F5A623;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .language-link:hover {
+            background: #FF9500;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .language-link.current {
+            background: #3D9A9B;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .cover-page {
+                padding: 60px 20px;
+            }
+
+            .cover-logo {
+                font-size: 40px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .restaurant-item {
+                grid-template-columns: 60px 1fr;
+                gap: 15px;
+            }
+
+            .qr-code {
+                display: none;
+            }
+
+            .rules-grid,
+            .attraction-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <style>
+        /* Otimizações WhatsApp */
+        * { -webkit-tap-highlight-color: transparent; }
+        body { 
+            overflow-x: hidden; 
+            max-width: 100vw;
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+        }
+        .qr-code img {
+            width: 80px !important;
+            height: 80px !important;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px !important; }
+            .container { padding: 0 !important; }
+            .section { padding: 30px 20px !important; }
+            .cover-logo { font-size: 42px !important; }
+            .section-title { font-size: 28px !important; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- PORTADA -->
+        <div class="cover-page">
+            <div class="cover-logo">Martin de Sá<br>Studio A5</div>
+            <div class="cover-subtitle">CARAGUATATUBA · SP</div>
+            <div class="cover-tagline">Guía de Bienvenida</div>
+        </div>
+
+        <!-- BIENVENIDA -->
+        <div class="section">
+            <div class="section-header">
+                <h1 class="section-title">¡Bienvenido! 🌴</h1>
+                <p class="section-subtitle">Estamos felices de recibirte</p>
+            </div>
+
+            <p class="welcome-text">
+                ¡Sea muy bienvenido al <strong>Martin de Sá Studio A5</strong>! Es un placer recibirlo en nuestro rincón especial en Caraguatatuba.
+            </p>
+
+            <div class="highlight-box">
+                <p>🌊 Ubicación Privilegiada</p>
+                <p>Está a solo <strong>500 metros</strong> de la hermosa Playa Martim de Sá, ¡considerada una de las playas mejor valoradas de Brasil!</p>
+            </div>
+
+            <p class="welcome-text">
+                Preparamos esta guía con mucho cariño para que su estadía sea perfecta. Aquí encontrará información importante, recomendaciones de restaurantes deliciosos y los mejores puntos turísticos de la región.
+            </p>
+
+            <p class="welcome-text">
+                <strong>✨ ¡Siéntase como en casa y disfrute cada momento!</strong><br>
+                Cualquier duda, estamos a su disposición.
+            </p>
+        </div>
+
+        <!-- REGLAS DE LA CASA -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Reglas de la Casa 📋</h2>
+                <p class="section-subtitle">Para una convivencia armoniosa</p>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-item">
+                    <div class="rule-icon">🚭</div>
+                    <div class="rule-title">Prohibido Fumar</div>
+                    <div class="rule-text">Para mantener el ambiente siempre agradable, pedimos que no fume dentro del apartamento. Así todos pueden disfrutar de un espacio limpio y confortable. 💙</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon">🤫</div>
+                    <div class="rule-title">Horario de Silencio</div>
+                    <div class="rule-text">Después de las 22h, pedimos que mantenga el volumen más bajo. Esto ayuda a garantizar el descanso y el bienestar de todos. ¡Gracias por su comprensión! 🌙</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon">🏊</div>
+                    <div class="rule-title">Horario de la Piscina</div>
+                    <div class="rule-text">La piscina está disponible de 9h a 20h. Los miércoles permanece cerrada para mantenimiento, garantizando que esté siempre limpia y lista para usar. ✨</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon">❄️</div>
+                    <div class="rule-title">Aire Acondicionado</div>
+                    <div class="rule-text">Al salir, recuerde apagar el aire acondicionado. Este pequeño gesto hace una gran diferencia en el ahorro de energía y en el cuidado del planeta. 🌱</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon">🔒</div>
+                    <div class="rule-title">Seguridad</div>
+                    <div class="rule-text">Por favor, siempre cierre con llave puertas y portones al salir. Cuidar de la seguridad es esencial para una estadía tranquila. 😊</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon">💚</div>
+                    <div class="rule-title">Cuidado y Respeto</div>
+                    <div class="rule-text">Trate el espacio con cariño — será su hogar por los próximos días. Cada cuidado hace toda la diferencia y nos ayuda a mantener todo siempre especial para usted y los próximos huéspedes. 🤗</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESTAURANTES -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Dónde Comer 🍽️</h2>
+                <p class="section-subtitle">Nuestras recomendaciones especiales</p>
+            </div>
+
+            <div class="restaurant-list">
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🦐</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Restaurante Gamboa</div>
+                        <div class="restaurant-rating">⭐ 4.3 (946 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 98188-2664</div>
+                        <div class="restaurant-comment">"Comida casera deliciosa con ese toque especial! Platos generosos y precio justo."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DRestaurante%2BGamboa%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🍕</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Dago Restaurante e Pizza Bar</div>
+                        <div class="restaurant-rating">⭐ 4.4 (604 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 3882-1260</div>
+                        <div class="restaurant-comment">"¡Las pizzas son sensacionales! Masa finita e ingredientes frescos. Ambiente agradable."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DDago%2BRestaurante%2Be%2BPizza%2BBar%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🐟</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Restaurante Canto do Mar</div>
+                        <div class="restaurant-rating">⭐ 4.7 (340 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 3600-7063</div>
+                        <div class="restaurant-comment">"¡Mariscos fresquísimos! La moqueca es imperdible. Vista hermosa y atención cariñosa."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DRestaurante%2BCanto%2Bdo%2BMar%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🍗</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Skina Chicken</div>
+                        <div class="restaurant-rating">⭐ 4.3 (430 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 98820-1212</div>
+                        <div class="restaurant-comment">"¡Para quien ama el pollo! Platos bien condimentados y porciones generosas. Delivery rápido."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DSkina%2BChicken%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🍹</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Quiosque Sol e Cia</div>
+                        <div class="restaurant-rating">⭐ 4.3 (242 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 98269-0034</div>
+                        <div class="restaurant-comment">"¡Pie en la arena con tapas deliciosas! Drinks refrescantes y música en vivo."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DQuiosque%2BSol%2Be%2BCia%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🌮</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">99 Rota da Fome</div>
+                        <div class="restaurant-rating">⭐ 4.4 (75 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 98843-1535</div>
+                        <div class="restaurant-comment">"¡Descubrimiento increíble! Comida de calidad con precio accesible. ¡Hamburguesa artesanal deliciosa!"</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3D99%2BRota%2Bda%2BFome%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🦞</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Quiosque Canto Bravo</div>
+                        <div class="restaurant-rating">⭐ 4.4 (2.008 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 3882-2367</div>
+                        <div class="restaurant-comment">"¡Tradicional de la región! Porciones abundantes y sabrosas. Excelente para almorzar con vista al mar."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DQuiosque%2BCanto%2BBravo%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🏖️</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Na Onda do Jacaré</div>
+                        <div class="restaurant-rating">⭐ 4.5 (231 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 2132-2276</div>
+                        <div class="restaurant-comment">"¡Pie en la arena en Prainha! Excelente para bocadillos y mariscos frescos. Ambiente relajado."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DNa%2BOnda%2Bdo%2BJacare%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🥩</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Garage Bar Steakhouse</div>
+                        <div class="restaurant-rating">⭐ 4.7 (8.183 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 2132-7026</div>
+                        <div class="restaurant-comment">"¡Steakhouse premium con música en vivo y ambiente sofisticado! Carnes nobles y cócteles especiales."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DGarage%2BBar%2BSteakhouse%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+
+                <div class="restaurant-item">
+                    <div class="restaurant-icon">🦐</div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Don Quixote - Mariscos</div>
+                        <div class="restaurant-rating">⭐ 4.5 (2.385 valoraciones)</div>
+                        <div class="restaurant-phone">📞 (12) 3883-1719</div>
+                        <div class="restaurant-comment">"¡Tradición en mariscos en el centro! Ambiente acogedor y platos generosos."</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DDon%2BQuixote%2BFrutos%2Bdo%2BMar%2BCaraguatatuba" alt="QR Code">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PUNTOS TURÍSTICOS -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Qué Visitar 🗺️</h2>
+                <p class="section-subtitle">Descubra las maravillas de Caraguatatuba</p>
+            </div>
+
+            <div class="attraction-grid">
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">500m</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Playa Martim de Sá</div>
+                        <div class="attraction-description">¡La 2ª playa mejor valorada de Brasil! Aguas cristalinas y extensa franja de arena.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">1,5km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Prainha</div>
+                        <div class="attraction-description">Mar tranquilo y poco profundo, ideal para niños y familias.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">1,6km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Pedra do Jacaré</div>
+                        <div class="attraction-description">¡Formación rocosa famosa que permite fotos increíbles!</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">2,9km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Mirador Camaroeiro</div>
+                        <div class="attraction-description">¡Vista 360° impresionante! Perfecto para el atardecer.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">2,5km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Playa Camaroeiro</div>
+                        <div class="attraction-description">¡Puerto pesquero con mariscos fresquísimos!</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">3km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Centro de Caraguatatuba</div>
+                        <div class="attraction-description">Comercio diversificado, farmacias y supermercados.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">4,5km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Playa Pedra da Freira</div>
+                        <div class="attraction-description">Formación legendaria en forma de monja arrodillada.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">5km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Playa Indaiá</div>
+                        <div class="attraction-description">Playa extensa y tranquila, excelente para caminatas.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">8km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Playa Capricornio</div>
+                        <div class="attraction-description">¡Olas perfectas para surf! Punto de los surfistas.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">8,5km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Lagoa Azul</div>
+                        <div class="attraction-description">Aguas tranquilas ideales para stand up paddle y kayak.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">8,7km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Massaguaçu</div>
+                        <div class="attraction-description">¡La playa más grande de la región! 5km con naturaleza preservada.</div>
+                    </div>
+                </div>
+
+                <div class="attraction-item">
+                    <div style="background: linear-gradient(135deg, #3D9A9B, #F5A623); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">📸</div>
+                    <div class="attraction-badge">10km</div>
+                    <div class="attraction-content">
+                        <div class="attraction-name">Shopping Serramar</div>
+                        <div class="attraction-description">Cine, tiendas y plaza de comidas completa.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AGRADECIMIENTO -->
+        <div class="thank-you-section">
+            <div class="thank-you-icon">💙</div>
+            <div class="thank-you-title">¡Gracias por elegir<br>nuestro rincón!</div>
+            <div class="thank-you-message">
+                Esperamos que tenga momentos increíbles en Caraguatatuba. Disfrute cada amanecer, cada baño en el mar y cada experiencia en esta ciudad maravillosa.<br><br>
+                ¡Su felicidad es nuestro mayor premio! ✨
+            </div>
+            <div class="thank-you-contact">
+                <strong>📱 ¿Necesita algo? ¡Estamos a su disposición!</strong><br>
+                Cualquier duda o sugerencia, no dude en contactarnos.<br>
+                <strong>¡Tenga una estadía memorable! 🌊☀️</strong>
+            </div>
+        </div>
+
+        <!-- SELECTOR DE IDIOMAS -->
+        <div class="language-selector">
+            <p><strong>🌍 Leer esta guía en otros idiomas:</strong></p>
+            <div class="language-links">
+                <a href="guia_boas_vindas_final_ajustado.html" class="language-link">🇧🇷 Português</a>
+                <a href="#" class="language-link current">🇪🇸 Español</a>
+                <a href="guia_boas_vindas_english.html" class="language-link">🇺🇸 English</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

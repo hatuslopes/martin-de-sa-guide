@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Boas-Vindas - Martin de Sá Studio A5</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: white;
+            color: #2C3E50;
+            line-height: 1.5;
+        }
+
+        /* PÁGINA A4 */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 15mm;
+            position: relative;
+            page-break-after: always;
+            background: white;
+        }
+
+        /* CAPA */
+        .cover-page {
+            background: linear-gradient(135deg, #F5A623 0%, #FF9500 50%, #3D9A9B 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .cover-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 48pt;
+            font-weight: 700;
+            margin-bottom: 10mm;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+            line-height: 1.2;
+        }
+
+        .cover-subtitle {
+            font-size: 20pt;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 20mm;
+        }
+
+        .cover-icon {
+            font-size: 80pt;
+            margin-bottom: 15mm;
+        }
+
+        .cover-tagline {
+            font-size: 16pt;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        /* CABEÇALHO DAS PÁGINAS */
+        .page-header {
+            text-align: center;
+            margin-bottom: 8mm;
+            padding-bottom: 5mm;
+            border-bottom: 3px solid #F5A623;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28pt;
+            color: #2C3E50;
+            margin-bottom: 2mm;
+        }
+
+        .page-subtitle {
+            font-size: 11pt;
+            color: #7F8C8D;
+            font-weight: 300;
+        }
+
+        /* BEM-VINDO */
+        .welcome-content {
+            font-size: 11pt;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 8mm;
+        }
+
+        .welcome-content strong {
+            color: #F5A623;
+        }
+
+        .welcome-highlight {
+            background: #FFF5E6;
+            padding: 5mm;
+            border-radius: 3mm;
+            border-left: 4px solid #F5A623;
+            margin: 5mm 0;
+        }
+
+        /* REGRAS DA CASA */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4mm;
+            margin-top: 5mm;
+        }
+
+        .rule-item {
+            background: #F8F9FA;
+            padding: 4mm;
+            border-radius: 2mm;
+            border-left: 3px solid #3D9A9B;
+        }
+
+        .rule-icon {
+            font-size: 18pt;
+            margin-bottom: 2mm;
+        }
+
+        .rule-title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 2mm;
+        }
+
+        .rule-text {
+            font-size: 9pt;
+            color: #7F8C8D;
+            line-height: 1.5;
+        }
+
+        /* RESTAURANTES */
+        .restaurant-list {
+            margin-top: 5mm;
+        }
+
+        .restaurant-item {
+            display: grid;
+            grid-template-columns: 25mm 1fr 25mm;
+            gap: 4mm;
+            margin-bottom: 5mm;
+            padding: 4mm;
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 2mm;
+            align-items: center;
+        }
+
+        .restaurant-icon {
+            font-size: 32pt;
+            text-align: center;
+        }
+
+        .restaurant-info {
+            flex: 1;
+        }
+
+        .restaurant-name {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 1mm;
+        }
+
+        .restaurant-rating {
+            color: #F5A623;
+            font-size: 9pt;
+            margin-bottom: 1mm;
+        }
+
+        .restaurant-phone {
+            color: #3D9A9B;
+            font-weight: 600;
+            font-size: 10pt;
+            margin-bottom: 2mm;
+        }
+
+        .restaurant-comment {
+            font-size: 8.5pt;
+            color: #7F8C8D;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .qr-code {
+            width: 25mm;
+            height: 25mm;
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 2mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .qr-label {
+            font-size: 7pt;
+            text-align: center;
+            color: #7F8C8D;
+            margin-top: 1mm;
+        }
+
+        /* PONTOS TURÍSTICOS */
+        .attraction-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4mm;
+            margin-top: 5mm;
+        }
+
+        .attraction-item {
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 2mm;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .attraction-image {
+            width: 100%;
+            height: 35mm;
+            object-fit: cover;
+        }
+
+        .attraction-badge {
+            position: absolute;
+            top: 2mm;
+            right: 2mm;
+            background: rgba(255,255,255,0.95);
+            padding: 1.5mm 3mm;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 8pt;
+            color: #2C3E50;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .attraction-content {
+            padding: 3mm;
+        }
+
+        .attraction-name {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 2mm;
+        }
+
+        .attraction-description {
+            font-size: 8pt;
+            color: #7F8C8D;
+            line-height: 1.4;
+        }
+
+        /* AGRADECIMENTO */
+        .thank-you-page {
+            background: linear-gradient(135deg, #3D9A9B 0%, #2E7D7E 50%, #F5A623 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .thank-you-icon {
+            font-size: 60pt;
+            margin-bottom: 10mm;
+        }
+
+        .thank-you-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32pt;
+            margin-bottom: 8mm;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .thank-you-message {
+            font-size: 13pt;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 10mm;
+            max-width: 150mm;
+        }
+
+        .thank-you-contact {
+            font-size: 11pt;
+            padding: 5mm;
+            background: rgba(255,255,255,0.15);
+            border-radius: 3mm;
+            backdrop-filter: blur(10px);
+        }
+
+        /* IMPRESSÃO */
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+            }
+
+            .page {
+                page-break-after: always;
+                margin: 0;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+
+        /* RODAPÉ */
+        .page-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 15mm;
+            right: 15mm;
+            text-align: center;
+            font-size: 8pt;
+            color: #95A5A6;
+            padding-top: 3mm;
+            border-top: 1px solid #E0E0E0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CAPA -->
+    <div class="page cover-page">
+        <div class="cover-logo">Martin de Sá<br>Studio A5</div>
+        <div class="cover-subtitle">CARAGUATATUBA · SP</div>
+        <div class="cover-tagline">Guia de Boas-Vindas</div>
+    </div>
+
+    <!-- PÁGINA 1: BEM-VINDO -->
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title">Bem-vindo! 🌴</h1>
+            <p class="page-subtitle">Estamos felizes em recebê-lo</p>
+        </div>
+
+        <div class="welcome-content">
+            <p style="margin-bottom: 5mm;">
+                Seja muito bem-vindo ao <strong>Martin de Sá Studio A5</strong>! É uma alegria recebê-lo em nosso cantinho especial em Caraguatatuba.
+            </p>
+
+            <div class="welcome-highlight">
+                <p><strong>🌊 Localização Privilegiada</strong></p>
+                <p>Você está a apenas <strong>500 metros</strong> da belíssima Praia Martim de Sá, considerada a <strong>uma das praias mais bem avaliada do Brasil</strong>!</p>
+            </div>
+
+            <p style="margin-bottom: 5mm;">
+                Preparamos este guia com muito carinho para que sua estadia seja perfeita. Aqui você encontrará informações importantes, dicas de restaurantes deliciosos e os melhores pontos turísticos da região.
+            </p>
+
+            <p>
+                <strong>✨ Sinta-se em casa e aproveite cada momento!</strong><br>
+                Qualquer dúvida, estamos à disposição.
+            </p>
+        </div>
+
+        <div class="page-footer">
+            Martin de Sá Studio A5 · Caraguatatuba, SP
+        </div>
+    </div>
+
+    <!-- PÁGINA 2: REGRAS DA CASA -->
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title">Regras da Casa 📋</h1>
+            <p class="page-subtitle">Para uma convivência harmoniosa</p>
+        </div>
+
+        <div class="rules-grid">
+            <div class="rule-item">
+                <div class="rule-icon">🚭</div>
+                <div class="rule-title">Proibido Fumar</div>
+                <div class="rule-text">Para manter o ambiente sempre agradável, pedimos que não fume dentro do apartamento. Assim todos podem aproveitar um espaço limpo e confortável. 💙</div>
+            </div>
+
+            <div class="rule-item">
+                <div class="rule-icon">🤫</div>
+                <div class="rule-title">Horário do Silêncio</div>
+                <div class="rule-text">Após as 22h, pedimos que mantenha o volume mais baixo. Isso ajuda a garantir o descanso e o bem-estar de todos. Obrigado pela compreensão! 🌙</div>
+            </div>
+
+            <div class="rule-item">
+                <div class="rule-icon">🏊</div>
+                <div class="rule-title">Horário da Piscina</div>
+                <div class="rule-text">A piscina está disponível das 9h às 20h. Às quartas-feiras, ela permanece fechada para manutenção, garantindo que esteja sempre limpinha e pronta para uso. ✨</div>
+            </div>
+
+            <div class="rule-item">
+                <div class="rule-icon">❄️</div>
+                <div class="rule-title">Ar-Condicionado</div>
+                <div class="rule-text">Ao sair, lembre-se de desligar o ar-condicionado. Esse pequeno gesto faz uma grande diferença na economia de energia e no cuidado com o planeta. 🌱</div>
+            </div>
+
+            <div class="rule-item">
+                <div class="rule-icon">🔒</div>
+                <div class="rule-title">Segurança</div>
+                <div class="rule-text">Por gentileza, sempre tranque portas e portões ao sair. Cuidar da segurança é essencial para uma estadia tranquila. 😊</div>
+            </div>
+
+            <div class="rule-item">
+                <div class="rule-icon">💚</div>
+                <div class="rule-title">Cuidado e Respeito</div>
+                <div class="rule-text">Trate o espaço com carinho — ele será seu lar pelos próximos dias. Cada cuidado faz toda a diferença e nos ajuda a manter tudo sempre especial para você e para os próximos hóspedes. 🤗</div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            Martin de Sá Studio A5 · Caraguatatuba, SP
+        </div>
+    </div>
+
+    <!-- PÁGINA 3: RESTAURANTES (PARTE 1) -->
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title">Onde Comer 🍽️</h1>
+            <p class="page-subtitle">Nossas recomendações especiais - Parte 1</p>
+        </div>
+
+        <div class="restaurant-list">
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🦐</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Restaurante Gamboa</div>
+                    <div class="restaurant-rating">⭐ 4.3 (946 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 98188-2664</div>
+                    <div class="restaurant-comment">"Comida caseira deliciosa com aquele toque especial! Pratos generosos e preço justo."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DRestaurante%2BGamboa%2BCaraguatatuba" alt="QR Code Gamboa">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🍕</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Dago Restaurante e Pizza Bar</div>
+                    <div class="restaurant-rating">⭐ 4.4 (604 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 3882-1260</div>
+                    <div class="restaurant-comment">"As pizzas são sensacionais! Massa fininha e ingredientes frescos. Ambiente agradável."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DDago%2BRestaurante%2Be%2BPizza%2BBar%2BCaraguatatuba" alt="QR Code Dago">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🐟</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Restaurante Canto do Mar</div>
+                    <div class="restaurant-rating">⭐ 4.7 (340 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 3600-7063</div>
+                    <div class="restaurant-comment">"Frutos do mar fresquíssimos! A moqueca é imperdível. Vista linda e atendimento carinhoso."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DRestaurante%2BCanto%2Bdo%2BMar%2BCaraguatatuba" alt="QR Code Canto do Mar">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🍗</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Skina Chicken</div>
+                    <div class="restaurant-rating">⭐ 4.3 (430 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 98820-1212</div>
+                    <div class="restaurant-comment">"Para quem ama frango! Pratos bem temperados e porções caprichadas. Delivery rápido."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DSkina%2BChicken%2BCaraguatatuba" alt="QR Code Skina">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            Martin de Sá Studio A5 · Caraguatatuba, SP · Página 3 de 9
+        </div>
+    </div>
+
+    <!-- PÁGINA 4: RESTAURANTES (PARTE 2) -->
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title">Onde Comer 🍽️</h1>
+            <p class="page-subtitle">Nossas recomendações especiais - Parte 2</p>
+        </div>
+
+        <div class="restaurant-list">
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🍹</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Quiosque Sol e Cia</div>
+                    <div class="restaurant-rating">⭐ 4.3 (242 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 98269-0034</div>
+                    <div class="restaurant-comment">"Pé na areia com petiscos deliciosos! Drinks refrescantes e música ao vivo."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DQuiosque%2BSol%2Be%2BCia%2BCaraguatatuba" alt="QR Code Sol e Cia">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🌮</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">99 Rota da Fome</div>
+                    <div class="restaurant-rating">⭐ 4.4 (75 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 98843-1535</div>
+                    <div class="restaurant-comment">"Descoberta incrível! Comida de qualidade com preço acessível. Hambúrguer artesanal delicioso!"</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3D99%2BRota%2Bda%2BFome%2BCaraguatatuba" alt="QR Code Rota da Fome">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🦞</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Quiosque Canto Bravo</div>
+                    <div class="restaurant-rating">⭐ 4.4 (2.008 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 3882-2367</div>
+                    <div class="restaurant-comment">"Tradicional da região! Porções fartas e saborosas. Ótimo para almoçar com vista para o mar."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DQuiosque%2BCanto%2BBravo%2BCaraguatatuba" alt="QR Code Canto Bravo">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            Martin de Sá Studio A5 · Caraguatatuba, SP · Página 4 de 9
+        </div>
+    </div>
+
+    <!-- PÁGINA 5: RESTAURANTES (PARTE 3) -->
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title">Onde Comer 🍽️</h1>
+            <p class="page-subtitle">Nossas recomendações especiais - Parte 3</p>
+        </div>
+
+        <div class="restaurant-list">
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🏖️</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Na Onda do Jacaré</div>
+                    <div class="restaurant-rating">⭐ 4.5 (231 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 2132-2276</div>
+                    <div class="restaurant-comment">"Pé na areia na Prainha! Ótimo para petiscos e frutos do mar frescos. Ambiente descontraído."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DNa%2BOnda%2Bdo%2BJacare%2BCaraguatatuba" alt="QR Code Na Onda do Jacaré">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🥩</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Garage Bar Steakhouse</div>
+                    <div class="restaurant-rating">⭐ 4.7 (8.183 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 2132-7026</div>
+                    <div class="restaurant-comment">"Steakhouse premium com música ao vivo e ambiente sofisticado! Carnes nobres e drinks especiais."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DGarage%2BBar%2BSteakhouse%2BCaraguatatuba" alt="QR Code Garage Bar">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+
+            <div class="restaurant-item">
+                <div class="restaurant-icon">🦐</div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">Don Quixote - Frutos do Mar</div>
+                    <div class="restaurant-rating">⭐ 4.5 (2.385 avaliações)</div>
+                    <div class="restaurant-phone">📞 (12) 3883-1719</div>
+                    <div class="restaurant-comment">"Tradição em frutos do mar no centro! Ambiente aconchegante e pratos generosos."</div>
+                </div>
+                <div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DDon%2BQuixote%2BFrutos%2Bdo%2BMar%2BCaraguatatuba" alt="QR Code Don Quixote">
+                    </div>
+                    <div class="qr-label">Escaneie para<br>ver no mapa</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            Martin de Sá Studio A5 · Caraguatatuba, SP · Página 5
+        </div>
+    </div>
+
+    <!-- PÁGINA 6: PONTOS TURÍSTICOS (PARTE 1) -->
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title">O Que Visitar 🗺️</h1>
+            <p class="page-subtitle">Descubra as maravilhas de Caraguatatuba - Parte 1</p>
+        </div>
+
+        <div class="attraction-grid">
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=KbOZLfxGta6pmUieJC1kR0krWMhaAJSlojdIK%2F9dkuv5kFzdvhlTbZCr5HsTQwd71of45R1i5KP2p8urbC%2FhAif1PhJ4%2F4NFQx9upRw3f%2BVaNC4pqkPANP7ZJBOWs0AK7CuEvukNoJbHDo5S%2BTHdLyE%3D&u2=FOlNcktXUV9crr8U&width=2560" alt="Praia Martim de Sá" class="attraction-image">
+                <div class="attraction-badge">500m</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Praia Martim de Sá</div>
+                    <div class="attraction-description">A 2ª praia mais bem avaliada do Brasil! Águas cristalinas e faixa de areia extensa.</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=CI1kPJw4dMaS6IxibD%2F%2B6XiE6sZcaUrg0veJmtbB1WN3Sf28oPCeGRXF0PzVcmzIgo1WHMzE1PgPJYz8ejn%2FKvGfngvmu5hNsaq1bmrIOymwoks%3D&u2=lyc9PS%2BLznTWSFm0&width=2560" alt="Prainha" class="attraction-image">
+                <div class="attraction-badge">1,5km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Prainha</div>
+                    <div class="attraction-description">Mar tranquilo e raso, ideal para crianças e famílias.</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=qPwtaRZgCQH9OkagVPJiCVqHHxOvAc61Xj3MuFlLDdtgv469u630ulHah3uWpkDcT6ys2ureG%2FKy0jQK56x6%2Fz5wLXgURqZAKctvTtc46BSZ7hId2QNiSl48IbFRD%2BCKKjSDjHcKIA8i1L5ix8HmBJ%2BE6bpS5j5hMqZTaikkerEr&u2=GnwgXsL7GnbepbOW&width=2560" alt="Pedra do Jacaré" class="attraction-image">
+                <div class="attraction-badge">1,6km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Pedra do Jacaré</div>
+                    <div class="attraction-description">Formação rochosa famosa que rende fotos incríveis!</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=C%2FLHK5m6dT3fi8uIeedurhFuFyv5urViu25PJj9hz7YVbe4Ipaud5HOp4VjZ8JhPBJcA9dtUn02j1aYGCu0a9XbQdDIf1FDDnmVmpPTd5A%3D%3D&u2=L%2FIi2MEmgjBcqzRB&width=2560" alt="Mirante Camaroeiro" class="attraction-image">
+                <div class="attraction-badge">2,9km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Mirante Camaroeiro</div>
+                    <div class="attraction-description">Vista 360° de tirar o fôlego! Perfeito para o pôr do sol.</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=cE9HMmSgjERHmHbVCQ9GC77R7YMmt7y0ZYC7dvRmWLWcIoU%2FPFFkcWIiBqyhqo3FL2D6tPqQMRhPISV4pmNru0TAbY8fjY2p%2BF0NhTaYKR91IaX9501Lh5o3x6JrhQ%3D%3D&u2=%2FRY9yteGDWY9pviI&width=2560" alt="Praia Camaroeiro" class="attraction-image">
+                <div class="attraction-badge">2,5km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Praia Camaroeiro</div>
+                    <div class="attraction-description">Entreposto de pesca com frutos do mar fresquinhos!</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=ZkVYQQo%2BCBILmrkVa8TnvS6z8AzzJXb4Ik9TULZlBC6ADSsCn3d2ags%2FD4dagot3blELBBnC0FtDecAK67ysdwV%2BKbgagqb8D0%2BYP%2Bd5Tn7z&u2=ATV9zjkveed%2BOIeQ&width=2560" alt="Centro" class="attraction-image">
+                <div class="attraction-badge">3km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Centro de Caraguatatuba</div>
+                    <div class="attraction-description">Comércio diversificado, farmácias e supermercados.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            Martin de Sá Studio A5 · Caraguatatuba, SP · Página 5
+        </div>
+    </div>
+
+    <!-- PÁGINA 6: PONTOS TURÍSTICOS (PARTE 2) -->
+    <div class="page">
+        <div class="page-header">
+            <h1 class="page-title">O Que Visitar 🗺️</h1>
+            <p class="page-subtitle">Descubra as maravilhas de Caraguatatuba - Parte 2</p>
+        </div>
+
+        <div class="attraction-grid">
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=PxuM4Y9SYpss%2BooUjVaKQZ9x%2BCfMNJmiBRLDYYixi6%2FEnO3MnS33PQriLBM%2FYB4dyC7bAmag%2FW1BNcM01YUZrQEMnbL95WwnWUY9wfg%2FpsVZ426lKgOAIp91XaPDnj1JwwoBgMc%3D&u2=y07%2FMqTXfyJAmxv9&width=2560" alt="Pedra da Freira" class="attraction-image">
+                <div class="attraction-badge">4,5km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Praia Pedra da Freira</div>
+                    <div class="attraction-description">Formação lendária em formato de freira ajoelhada.</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=7GsCxY9PM3uUbc4qh7Tqw9MlWiB39gl6BtSXE3HSLFIcm9i83VdkL2fK3OEIgzNNir86sZRUDzD3HweqLYxEdxpCkgyRAI5iPdQWCesO0RaFCXTskVwJSi4N%2BySB4LToT%2BsH9KsKAZUbbelcJFM2qcY%3D&u2=P6ieKFYC19UGRF8o&width=2560" alt="Praia Indaiá" class="attraction-image">
+                <div class="attraction-badge">5km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Praia Indaiá</div>
+                    <div class="attraction-description">Praia extensa e tranquila, ótima para caminhadas.</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=3XBJGZr%2FT5MLMSmpQ6dN5rp7tqmqs1BYc%2FgwX9CYMdQcZKREq5Zu5Qj6qzf%2FViMuKisMJDEzlBI9ea%2FrUaRFge2cLDLyzUUmTHwxy07Tc66OdyA8NY4kpYUQpSbbhY9NzA%3D%3D&u2=AyDbAjTZMam7H7Xy&width=2560" alt="Praia Capricórnio" class="attraction-image">
+                <div class="attraction-badge">8km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Praia Capricórnio</div>
+                    <div class="attraction-description">Ondas perfeitas para surf! Ponto dos surfistas.</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=5Oyf5hwOfb90MXgAzN%2BuaVPT8rP5oRlUUhEkjCoHavvFMxfOtwvDki0x0Hcczi1aJIUWuxOtC9KjrlgPvE9MDmhfc4Gi75f2x%2BzKwJ%2BDV1l9ZIjFaTH1xjAzpITcvuc%3D&u2=sSkrg2iCxN0GdSDd&width=2560" alt="Lagoa Azul" class="attraction-image">
+                <div class="attraction-badge">8,5km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Lagoa Azul</div>
+                    <div class="attraction-description">Águas calmas ideais para stand up paddle e caiaque.</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=mdF1c3GlDGyFZKwm2WoNASrEvOD%2Bspy%2FnD5ol%2Bx9YJzG%2FdQsJmYI%2BG8LThxXq6w9dyyNr1c3jcC%2FPfhzeivlvMNyYtB5ArqXWxUBs1ekYzARz6dgp2bpf8FEOmArC7tiMhh2bwfqFROiUuZzCb6w%2BouWLI9kkMkkHqn%2B19fHcYOG5JSk76n82hddGjxFQ1rtcZNthhCF7dmMYrq0KeLjL6HQc1iFRDGnJgPI8J8G%2FXEWaIxgiURgYkf%2BQMfE7jL2C9a%2FrQuF2hN1GEGFUWwGd7vRssgdZuhK2Z7Q3%2BE0Ul2%2Byg%3D%3D&u2=ip0JiT%2FMy9VOOd0g&width=2560" alt="Massaguaçu" class="attraction-image">
+                <div class="attraction-badge">8,7km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Massaguaçu</div>
+                    <div class="attraction-description">A maior praia da região! 5km com natureza preservada.</div>
+                </div>
+            </div>
+
+            <div class="attraction-item">
+                <img src="https://sspark.genspark.ai/cfimages?u1=eEOmPsHP3YzX4RxYEJaAcYohrUDu9qqstu4TAXOv%2FHKdJ2G3npOAR5Ls2dIoj%2BRVs%2B8EPdTmfxeiOXu6a3RuH3AJ0a7Ye3mLVUYqTpOjaIzrPY5%2BqStxKmF4S%2B57Wik1meeV1iEP%2BXeuZVPkufFIWQ%3D%3D&u2=WtaOjiIZpbOo1tTj&width=2560" alt="Shopping Serramar" class="attraction-image">
+                <div class="attraction-badge">10km</div>
+                <div class="attraction-content">
+                    <div class="attraction-name">Shopping Serramar</div>
+                    <div class="attraction-description">Cinema, lojas e praça de alimentação completa.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            Martin de Sá Studio A5 · Caraguatatuba, SP · Página 7 de 9
+        </div>
+    </div>
+
+    <!-- PÁGINA FINAL: AGRADECIMENTO -->
+    <div class="page thank-you-page">
+        <div class="thank-you-icon">💙</div>
+        <div class="thank-you-title">Obrigado por escolher<br>nosso cantinho!</div>
+        <div class="thank-you-message">
+            Esperamos que você tenha momentos incríveis em Caraguatatuba. Aproveite cada amanhecer, cada mergulho no mar e cada experiência nesta cidade maravilhosa.<br><br>
+            Sua felicidade é nosso maior prêmio! ✨
+        </div>
+        <div class="thank-you-contact">
+            <strong>📱 Precisou de algo? Estamos à disposição!</strong><br>
+            Qualquer dúvida ou sugestão, não hesite em nos contatar.<br>
+            <strong>Tenha uma estadia memorável! 🌊☀️</strong><br><br>
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
+                <p style="margin-bottom: 15px; font-size: 16px;"><strong>🌍 Foreign guests / Huéspedes extranjeros</strong></p>
+                <p style="font-size: 13px; margin-bottom: 20px;">Scan the QR code to read this guide in your language:</p>
+                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="background: white; padding: 10px; border-radius: 10px; display: inline-block;">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=computer%3A%2F%2F%2Fmnt%2Fuser-data%2Foutputs%2Fguia_boas_vindas_english.html" alt="English QR Code" style="width: 120px; height: 120px; display: block;">
+                        </div>
+                        <p style="margin-top: 10px; font-size: 14px; font-weight: 600; color: #F5A623;">🇺🇸 English</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: white; padding: 10px; border-radius: 10px; display: inline-block;">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=computer%3A%2F%2F%2Fmnt%2Fuser-data%2Foutputs%2Fguia_boas_vindas_espanol.html" alt="Spanish QR Code" style="width: 120px; height: 120px; display: block;">
+                        </div>
+                        <p style="margin-top: 10px; font-size: 14px; font-weight: 600; color: #F5A623;">🇪🇸 Español</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

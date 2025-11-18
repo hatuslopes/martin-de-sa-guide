@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guia de Boas-Vindas - Martin de Sá Studio A5, Caraguatatuba">
+    <title>Martin de Sá Studio A5 - Welcome Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #F5A623 0%, #FF9500 50%, #3D9A9B 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #7F8C8D;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .welcome-text {
+            font-size: 20px;
+            color: #2C3E50;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .language-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .language-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px 30px;
+            border: 2px solid #E0E0E0;
+            border-radius: 15px;
+            background: white;
+            color: #2C3E50;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .language-btn:hover {
+            border-color: #F5A623;
+            background: linear-gradient(135deg, #F5A623 0%, #FF9500 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 166, 35, 0.3);
+        }
+
+        .flag {
+            font-size: 32px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #E0E0E0;
+            font-size: 14px;
+            color: #95A5A6;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 25px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+
+            .welcome-text {
+                font-size: 16px;
+            }
+
+            .language-btn {
+                padding: 18px 25px;
+                font-size: 16px;
+            }
+        }
+
+        /* Animação de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            animation: fadeInUp 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🏖️</div>
+        <h1 class="logo">Martin de Sá<br>Studio A5</h1>
+        <p class="subtitle">CARAGUATATUBA · SP</p>
+        
+        <p class="welcome-text">
+            <strong>Bem-vindo! Welcome! ¡Bienvenido!</strong><br>
+            Selecione seu idioma / Select your language / Seleccione su idioma
+        </p>
+
+        <div class="language-selector">
+            <a href="pt.html" class="language-btn">
+                <span class="flag">🇧🇷</span>
+                <span>Português</span>
+            </a>
+
+            <a href="en.html" class="language-btn">
+                <span class="flag">🇺🇸</span>
+                <span>English</span>
+            </a>
+
+            <a href="es.html" class="language-btn">
+                <span class="flag">🇪🇸</span>
+                <span>Español</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>📍 500 metros da Praia Martim de Sá</p>
+            <p>🌊 2ª praia mais bem avaliada do Brasil</p>
+        </div>
+    </div>
+
+    <script>
+        // Detectar idioma do navegador e redirecionar automaticamente após 3 segundos
+        window.addEventListener('load', function() {
+            const userLang = navigator.language || navigator.userLanguage;
+            let targetPage = 'pt.html'; // padrão português
+            
+            if (userLang.startsWith('en')) {
+                targetPage = 'en.html';
+            } else if (userLang.startsWith('es')) {
+                targetPage = 'es.html';
+            }
+            
+            // Mostrar mensagem e redirecionar
+            const autoRedirect = setTimeout(() => {
+                // window.location.href = targetPage; // Descomente para auto-redirect
+            }, 3000);
+            
+            // Cancelar auto-redirect se usuário clicar em algum botão
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    clearTimeout(autoRedirect);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
